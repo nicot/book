@@ -9,9 +9,15 @@
 
         <!-- ACE -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script>
+
         <!-- Firepad -->
         <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.2.0/firepad.css" />
         <script src="https://cdn.firebase.com/libs/firepad/1.2.0/firepad.min.js"></script>
+
+        <!-- React -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+        <script src="https://fb.me/react-0.14.8.js"></script>
+        <script src="https://fb.me/react-dom-0.14.8.js"></script>
 
         <style>
          html {
@@ -24,7 +30,7 @@
          }
          #gitter {
              width: 100%;
-             height: 80vh;
+             height: 40vh;
          }
          #firepad-container {
              width: 100%;
@@ -37,11 +43,13 @@
     </head>
 
     <body>
-        <h1>Code Together</h1>
+        <script type="text/babel" src="code.jsx"></script>
+        <h2>Code Together</h2>
 
         <div class="row">
             <div class="col s5">
                 <iframe id="gitter" src="https://gitter.im/nicot/book/~embed"></iframe>
+                <div id="contributions"></div>
             </div>
             <div class="col s7">
                 <div id="firepad-container"></div>
@@ -52,7 +60,8 @@
          var firepadRef = new Firebase('https://glowing-heat-5994.firebaseio.com/');
          var editor = ace.edit('firepad-container');
          var firepad = Firepad.fromACE(firepadRef, editor);
-         editor.getSession().setMode("ace/mode/javascript")
+         editor.getSession().setMode("ace/mode/javascript");
+         editor.$blockScrolling = Infinity;
         </script>
     </body>
 </html>
