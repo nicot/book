@@ -33,7 +33,7 @@ var Activity = React.createClass({
             }
             const char = JSON.stringify(val.o[1])
             return (<div key={key} className="row" style={{marginBottom: "0px"}}>
-                <div className="col s8" style={{color: color}}>Author: {author.split("-")[1]}</div>
+                <div className="col s8">Author: <span style={{color: color}}>{author.split("-")[1]}</span></div>
                 <div className="col s4">Action: {char}</div>
             </div>)
         }.bind(this));
